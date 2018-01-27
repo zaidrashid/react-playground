@@ -43,9 +43,12 @@ class SearchBar extends Component {
     }
 }
 
-
-function mapDispatchToProps(dispath) {
-	return bindActionCreators({ fetchWeather }, dispath);
+/**
+ * @param  {Function} dispatch an object creator
+ * @returns {Function} The binding function
+ */
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ fetchWeather }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);
