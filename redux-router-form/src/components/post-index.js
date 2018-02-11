@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
+import { Link } from 'react-router-dom';
 import _Loadash from 'lodash';
+import { APP_ROUTES } from '../const/app-routes';
 
 class PostsIndex extends Component {
     componentDidMount() {
@@ -19,8 +21,13 @@ class PostsIndex extends Component {
     render() {
         return (
             <div>
-            <h3>Posts</h3>
-            <ul className="list-groupt">{this.renderPosts()}</ul>
+                <div className="text-xs-right">
+                    <Link className="btn btn-primary" to={APP_ROUTES.POST_NEW}>
+                        Add a post
+                    </Link>
+                </div>
+                <h3>Posts</h3>
+                <ul className="list-groupt">{this.renderPosts()}</ul>
             </div>
         );
     }
