@@ -1,7 +1,6 @@
 import { FETCH_POSTS } from '../actions';
 import _Loadash from 'lodash';
 
-
 /**
  * @param {Object} state the state from redux
  * @param {Object} action the action from redux
