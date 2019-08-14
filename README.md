@@ -1,7 +1,8 @@
 API
 
 1. https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
-1. Unsplash - photo engine - https://unsplash.com/developers
+2. Unsplash - photo engine - https://unsplash.com/developers
+3. JSONPlaceholder - https://jsonplaceholder.typicode.com/
 
 
 Styling
