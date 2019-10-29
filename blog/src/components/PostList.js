@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 
@@ -13,3 +15,7 @@ class PostList extends React.Component {
 }
 
 export default connect(null, { fetchPosts })(PostList);
+
+PostList.propTypes = {
+  fetchPosts: PropTypes.func.isRequired,
+};

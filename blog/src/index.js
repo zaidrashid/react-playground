@@ -10,5 +10,6 @@ ReactDOM.render(
   <Provider store={createStore(reducers)}>
     <App />
   </Provider>,
+  // eslint-disable-next-line no-undef
   document.querySelector('#root'),
 );
