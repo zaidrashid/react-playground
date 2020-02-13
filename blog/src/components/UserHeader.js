@@ -11,17 +11,18 @@ class UserHeader extends React.Component {
 
   render() {
     if (!this.props.user || !this.props.user.name) {
-      return '';
+      return null;
     }
 
     return <p>{this.props.user.name}</p>;
   }
 }
 
-const mapStateToProps = state => ({ user: state.user });
+const mapStateToProps = (state, ownProps) => (
+  { user: state.users.find(user => user.id === ownProps.userId) }
+);
 
 export default connect(mapStateToProps, { fetchUser })(UserHeader);
-
 
 UserHeader.defaultProps = {
   user: {},
@@ -30,5 +31,5 @@ UserHeader.defaultProps = {
 UserHeader.propTypes = {
   fetchUser: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
-  user: PropTypes.objectOf({}),
+  user: PropTypes.objectOf({ id: PropTypes.number, name: PropTypes.string }),
 };
