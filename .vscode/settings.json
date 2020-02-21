@@ -2,6 +2,7 @@
     "files.eol": "\n",
     "editor.tabSize": 2,
     "eslint.workingDirectories": [
-        "blog"
+        "blog",
+        "stream/client"
     ]
 }
