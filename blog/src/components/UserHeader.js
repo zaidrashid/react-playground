@@ -2,34 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
 
-class UserHeader extends React.Component {
-  componentDidMount() {
-    this.props.fetchUser(this.props.userId);
+const UserHeader = ({ user }) => {
+  if (!user) {
+    return null;
   }
 
-  render() {
-    if (!this.props.user || !this.props.user.name) {
-      return null;
-    }
-
-    return <p>{this.props.user.name}</p>;
-  }
-}
+  return <p>{user.name}</p>;
+};
 
 const mapStateToProps = (state, ownProps) => (
   { user: state.users.find(user => user.id === ownProps.userId) }
 );
 
-export default connect(mapStateToProps, { fetchUser })(UserHeader);
+export default connect(mapStateToProps)(UserHeader);
 
 UserHeader.defaultProps = {
-  user: {},
+  user: undefined,
 };
 
 UserHeader.propTypes = {
-  fetchUser: PropTypes.func.isRequired,
-  userId: PropTypes.number.isRequired,
-  user: PropTypes.objectOf({ id: PropTypes.number, name: PropTypes.string }),
+  user: PropTypes.exact({
+    id: PropTypes.number,
+    address: PropTypes.object,
+    name: PropTypes.string,
+    username: PropTypes.string,
+    phone: PropTypes.string,
+    email: PropTypes.string,
+    website: PropTypes.string,
+    company: PropTypes.object,
+  }),
 };
