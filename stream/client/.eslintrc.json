@@ -19,5 +19,8 @@
     "react/destructuring-assignment": [ 
       2, "always",
       { "ignoreClassFields": true }]
+  },
+  "env": {
+    "browser": true
   }
 }
