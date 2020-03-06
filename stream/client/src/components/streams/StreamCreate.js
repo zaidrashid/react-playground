@@ -1,10 +1,14 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
+
+import { createStream } from '../../actions';
 
 class StreamCreate extends React.Component {
   onSubmit = (formValues) => {
     // console.log('on submit ', formValues);
+    this.props.createStream(formValues);
   }
 
   renderError = ({ error, touched }) => error && touched && (
@@ -65,11 +69,14 @@ const validate = (values) => {
   return errors;
 };
 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: 'streamCreate',
   validate,
 })(StreamCreate);
 
+export default connect(null, { createStream })(formWrapped);
+
 StreamCreate.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  createStream: PropTypes.func.isRequired,
 };
