@@ -4,5 +4,6 @@
     "eslint.workingDirectories": [
         "blog",
         "stream/client"
-    ]
+    ],
+    "editor.minimap.size": "fit"
 }
