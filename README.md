@@ -9,3 +9,4 @@ Styling
 
 1. Semantic UI - https://semantic-ui.com/
 2. Tailwind CSS - https://tailwindcss.com/
+3. Tachyons CSS - https://tachyons.io/
