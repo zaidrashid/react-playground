@@ -3,7 +3,8 @@
     "editor.tabSize": 2,
     "eslint.workingDirectories": [
         "blog",
-        "stream/client"
+        "stream/client",
+        "translate"
     ],
     "editor.minimap.size": "fit"
 }
