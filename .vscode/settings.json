@@ -4,7 +4,8 @@
     "eslint.workingDirectories": [
         "blog",
         "stream/client",
-        "translate"
+        "translate",
+        "hooks-simple"
     ],
     "editor.minimap.size": "fit"
 }
