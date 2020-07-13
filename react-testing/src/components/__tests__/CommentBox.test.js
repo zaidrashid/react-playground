@@ -1,12 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+import Root from 'Root';
 import CommentBox from 'components/CommentBox';
 
 describe('CommentBox component', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<CommentBox />);
+    wrapper = mount(<Root><CommentBox /></Root>);
   });
 
   afterEach(() => {
@@ -21,35 +22,32 @@ describe('CommentBox component', () => {
     expect(wrapper.find('button')).toHaveLength(1);
   });
 
-  it('can type on the textarea', () => {
+  describe('has a text area', () => {
     const valueToAssert = 'new comment';
-    // the real event name of the html
-    wrapper.find('textarea').simulate('change', {
-      target: {
-        value: valueToAssert
-      }
+
+    beforeEach(() => {
+      // the real event name of the html
+      wrapper.find('textarea').simulate('change', {
+        target: {
+          value: valueToAssert
+        }
+      });
+  
+      // force the component to update
+      // ref: 36. Forcing component update (Advance React and Redux)
+      wrapper.update();
     });
 
-    // force the component to update
-    // ref: 36. Forcing component update (Advance React and Redux)
-    wrapper.update();
-
-    // retrieving props value
-    // ref 37. Retrieveing props value (Advance React and Redux)
-    expect(wrapper.find('textarea').prop('value')).toEqual(valueToAssert);
-  });
-
-  it('can submit new comment', () => {
-    wrapper.find('textarea').simulate('change', {
-      target: {
-        value: 'test'
-      }
+    it('where text can be type in', () => {
+      // retrieving props value
+      // ref 37. Retrieveing props value (Advance React and Redux)
+      expect(wrapper.find('textarea').prop('value')).toEqual(valueToAssert);
     });
-    wrapper.update();
-
-    wrapper.find('form').simulate('submit');
-    wrapper.update();
-    expect(wrapper.find('textarea').prop('value')).toEqual('');
+  
+    it('where the text area are emptied when user submit the form', () => {
+      wrapper.find('form').simulate('submit');
+      wrapper.update();
+      expect(wrapper.find('textarea').prop('value')).toEqual('');
+    });
   });
-
 });
