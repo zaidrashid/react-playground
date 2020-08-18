@@ -14,12 +14,20 @@ describe('CommentBox component', () => {
     wrapper.unmount();
   })
 
-  it('renders a form', () => {
-    expect(wrapper.find('form')).toHaveLength(1);
-    expect(wrapper.find('textarea')).toHaveLength(1);
-    expect(wrapper.find('textarea').prop('value')).toEqual('');
-    expect(wrapper.find('textarea').prop('placeholder')).toEqual('Enter your comment here...');
-    expect(wrapper.find('button')).toHaveLength(1);
+  describe('renders a form', () => {
+    it('contains a form element', () => {
+      expect(wrapper.find('form')).toHaveLength(1);
+    });
+    
+    it('contains a textarea element', () => {
+      expect(wrapper.find('textarea')).toHaveLength(1);
+      expect(wrapper.find('textarea').prop('value')).toEqual('');
+      expect(wrapper.find('textarea').prop('placeholder')).toEqual('Enter your comment here...');
+    });
+
+    it('contains 2 buttons', () => {
+      expect(wrapper.find('button')).toHaveLength(2);
+    });
   });
 
   describe('has a text area', () => {
