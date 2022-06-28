@@ -1,0 +1,2 @@
+  - run this with `http-server`
+  - this is example to run React with JSX in dev environment without any dependecies.  
